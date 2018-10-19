@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pysocks = "*"
+watchdog = "*"
+
+[packages]
+flask = "*"
+requests = "*"
+flask-wtf = "*"
+python-dotenv = "*"
+
+[requires]
+python_version = "2.7"
