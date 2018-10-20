@@ -20,7 +20,11 @@ load_dotenv(os.path.join(basedir, '.env'))
 URL = os.getenv('URL', 'https://www.googleapis.com/customsearch/v1?')
 CSE_ID = os.getenv('CSE_ID', 'not found')
 CSE_key = os.getenv('CSE_key', 'not found')
-proxies = json.loads(os.getenv('proxies', 'not found'), encoding='ascii')
+try:
+    proxies = json.loads(os.getenv('proxies', 'not found'), encoding='ascii')
+except ValueError as e:
+    print(e)
+    proxies = None
 
 
 def Search(query, cx=CSE_ID, key=CSE_key, proxies=proxies, num=10, start=1):
