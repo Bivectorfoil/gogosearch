@@ -12,6 +12,7 @@ flask = "*"
 requests = "*"
 flask-wtf = "*"
 python-dotenv = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "2.7"
