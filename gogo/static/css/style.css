@@ -14,7 +14,11 @@ input#search {
         width: 503px;
         height: 34px;
         margin: 5px 10px 10px 420px;
-        /*box-shadow: 2px 3px 3px 0px black;*/
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.41);
+}
+
+input#search:hover {
+        box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
 }
 
 input#submit {
@@ -121,11 +125,10 @@ div.g {
         margin-top: 0;
         margin-bottom: 26px;
 }
+
 div.rc {
         position: relative;
 }
-
-
 
 .a, cite {
         color: #006621;
@@ -162,4 +165,85 @@ span.next {
 div#navcnt {
         margin-left: 130px;
         padding: 30px;
+}
+
+@media screen and (max-device-width: 900px) {
+        h1 small {
+                display: none;
+        }
+}
+
+@media screen and (max-device-width: 420px) {
+        #center_col {
+                width: 290%;
+                margin-left: 10rem;
+        }
+        #res {
+                font-size:xx-large;
+                border: 0;
+                padding: 0 160px;
+                width:100%;
+                margin-left: -24rem;
+        }
+        h1 {
+                font-size: 6rem;
+                color: #2240d8fc;
+                margin-top: 3rem;
+                margin-right: 10rem;
+                margin-bottom: 1rem;
+                margin-left: 34.5rem;
+                text-decoration: none;
+        }
+        #res h3 {
+                font-size:4rem;
+                width: 100%;
+        }
+        input#search {
+                font: 1em arial,sans-serif;
+                font-family: Georgia, serif;
+                line-height: 0.8em;
+                width: 110%;
+                margin: 1rem 1rem 2rem 29.2rem ;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        input#search:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        input#submit {
+                font-size:3rem;
+                width: 55%;
+                height: 5rem;
+                margin-top: 0.01rem;
+                margin-bottom: 2rem;
+                margin-left: 36rem;
+        }
+        div#resultStates.resultstates {
+                font-size:2.5rem;
+                margin-top: 0.5rem;
+                margin-bottom: 2rem;
+                margin-left: 7rem;
+        }
+        div.g {
+                width: 100%;
+                margin-top:3rem;
+                margin-left: 6rem;
+        }
+        div.rc {
+                padding-left:1.5rem;
+                box-shadow: 0 4px 8px 5px rgba(0,0,0,0.2);
+                width: 120%;
+        }
+        div.r {
+                padding-top:1rem;
+        }
+        span.st {
+                font-size:3rem;
+                width:99%;
+                padding-bottom:0.5rem;
+        }
+        span.next {
+                margin-top: 30rem;
+                margin-left: 70rem;
+        }
+
 }
