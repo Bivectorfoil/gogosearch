@@ -50,7 +50,7 @@
         {% if results['queries']['previousPage'] %}
         <a class="pn" href="{{ url_for('result', query=results['queries']['request'][0]['searchTerms'],
           starts=results['queries']['previousPage'][0]['startIndex']) }}" id="pnprev">
-          <span>Previous</span>
+          <span class="previous">Previous</span>
         </a>
         {% endif %}
         </td>
