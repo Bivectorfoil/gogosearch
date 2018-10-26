@@ -81,4 +81,4 @@ I recommand use [Heroku](https://www.heroku.com/) to deploy project ( may add de
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE)file for details
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
