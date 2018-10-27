@@ -67,5 +67,29 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- for mobile device -->
+  <div class="MobileFoot">
+    <table id="mobilenav">
+      <tbody>
+        <tr valign="top">
+          <td class="next">
+          {% if results['queries']['nextPage'] %}
+            <a href="{{ url_for('result', query=results['queries']['request'][0]['searchTerms'],
+               starts=results['queries']['nextPage'][0]['startIndex']) }}"
+               id="pnnext" style="text-align:left">
+              <span class="next">More results...</span>
+            </a>
+          {% else %}
+            <a class="pn" href="{{ url_for('result', query=results['queries']['request'][0]['searchTerms'],
+              starts=results['queries']['previousPage'][0]['startIndex']) }}" id="pnprev">
+              <span class="more">End of Results, Go back</span>
+            </a>
+          {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 {% endif %}
 {% endblock foot %}
