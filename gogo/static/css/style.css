@@ -1,3 +1,7 @@
+html {
+        font-size: 14px;
+}
+
 body {
         color: #222;
         /*font-size: small;*/
@@ -7,31 +11,52 @@ body {
 
 }
 
+h1 {
+        font-size: -webkit-xxx-large;
+        color: #2240d8fc;
+        margin-top: 75px;
+        /*margin-right: 10px;*/
+        margin-bottom: 10px;
+        /*margin-left: 625px;*/
+        /*margin-left: 600px;*/
+        text-decoration: none; text-align: center;
+}
+
+div.searchform {
+        width: 36rem;
+        margin-bottom: 0.5rem;
+        margin-left: auto; margin-right: auto;
+}
+
 input#search {
         font: 16px arial,sans-serif;
         font-family: Georgia, serif;
         line-height: 34px;
         width: 503px;
         height: 34px;
-        margin: 5px 10px 10px 420px;
+        /*margin: 5px 10px 10px 420px;*/
         box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.41);
 }
 
 input#search:hover {
-        box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+div.submit {
+        margin:0 auto;
+        width:5.5rem;
 }
 
 input#submit {
-        font-size: 16px;
+        /*font-size: 16px;*/
+        font-size: 1.14rem;
+        /*line-height: 27px;*/
+        line-height: 1.92rem;
         font-weight: bold;
         color: #757575;
         margin-top: 5px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        margin-left: 600px;
-        width: 125px;
-        height: 36px;
-        line-height: 27px;
+        /*margin-bottom: 10px;*/
+        width: 6rem;
         border: 1px solid #f2f2f2;
         background-color: #f2f2f2;
 }
@@ -72,17 +97,6 @@ div.NotFound p {
 }
 
 a:link { text-decoration: none;color: blue}
-
-h1 {
-        font-size: -webkit-xxx-large;
-        color: #2240d8fc;
-        margin-top: 75px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        /*margin-left: 625px;*/
-        margin-left: 600px;
-        text-decoration: none;
-}
 
 small {
         font-size: small;
@@ -129,7 +143,9 @@ div.g {
 div.rc {
         position: relative;
 }
-
+div.TbwUpd {
+        padding:0.01rem;
+}
 .a, cite {
         color: #006621;
         font-style: 14px;
@@ -165,6 +181,11 @@ span.next {
 div#navcnt {
         margin-left: 130px;
         padding: 30px;
+        font-size: 1.5rem;
+}
+
+div.MobileFoot {
+        display: none;
 }
 
 @media screen and (max-device-width: 900px) {
@@ -174,47 +195,56 @@ div#navcnt {
 }
 
 @media screen and (max-device-width: 420px) {
-        .html {
-                font-size: 4.375vw;
+        html {
+                font-size: 4vw;
         }
-        .body {
-                width:100rem;
+        body {
+
+                width:100%;
         }
         h1 {
                 font-size: 2rem;
                 color: #2240d8fc;
-                text-align: center;text-decoration: none;
+                text-align: center; text-decoration: none;
                 margin-left:auto;
                 margin-right:auto;
                 margin-top: 0.5rem;
                 margin-bottom: 0.4rem;
         }
+        div.searchform {
+                width: 16rem;
+                margin: 0 auto;
+        }
         input#search {
                 font: 1em arial,sans-serif;
                 font-family: Georgia, serif;
-                line-height: 0.8em;
-                width: 50%;
+                line-height: 0.8rem;
                 height:1.45rem;
-                margin-left:6.6rem;
+                width: 100%;
+                margin-top: 0;margin-bottom: 0.8rem;
+                margin-left: auto; margin-right: auto;
+                /*margin-left:6.6rem;*/
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
         }
         input#search:hover {
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
+        div.submit {
+                margin:0 auto;
+                width: 6rem;
+        }
         input#submit {
                 font-size:1rem;
-                width: 20%;
-                height: 2rem;
+                height: 1.8rem;
+                line-height:0.5rem;
                 margin-top: 0.01rem;
-                margin-bottom: 0.2rem;
-                margin-left:10.5rem;
-                /*margin-left: 36rem;*/
+                margin-bottom: 0.1rem;
         }
         div#resultStates.resultstates {
                 font-size:0.5rem;
                 margin-bottom: 0.1rem;
                 margin-left: auto;
-                padding-left:0.5rem;
+                padding-left: 1rem;
                 padding-right:auto;
         }
         #center_col {
@@ -229,50 +259,61 @@ div#navcnt {
                 width:100%;
                 /*margin-left: -24rem;*/
         }
-
-        #res h3 {
-                font-size:1.2rem;
-                width: 100%;
-        }
         div.g {
                 width: 100%;
-                margin-top:0.1rem;
+                margin-top:0.1rem; margin-bottom: 1rem;
                 margin-left:auto;
         }
         div.rc {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
                 padding-top: 0.01rem;
-                box-shadow: 0 4px 8px 5px rgba(0,0,0,0.2);
+                box-shadow: 0 1px 4px 2px rgba(0,0,0,0.2);
                 
         }
         div.r {
-                padding-top: 0.01rem;
+                font-size:1.5rem;
+                padding-top: 0.8rem; padding-left: 0.5rem;padding-right: 0.5rem; padding-bottom: 0.2rem;
+                margin-top: 0.1rem;
+                margin-left: 0.5rem;margin-right: 0.5rem;
+        }
+        #res h3 {
+                margin-top: 0.1rem;
+                font-size: 1.2rem;
+                width: 100%;
         }
         div.TbwUpd {
+                font-size:1.1rem;
                 padding:0.01rem;
         }
         cite {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 width:100%;
-                padding-top:0.1rem;
+        }
+        div.s {
+                padding-left: 0.5rem;padding-right: 0.5rem; padding-bottom: 0.2rem;
+                margin-top: 0.5rem; margin-left: 0.5rem;margin-right: 0.5rem;
         }
         span.st {
-                font-size:1rem;
+                font-size:0.85rem;
                 width:100%;
         }
         div#navcnt {
-                margin:0.1rem;
-                padding:0.1rem;
+                margin-top: 2rem; margin-left: 0.5rem; margin-right: 0.5rem;
+                padding: 0.1rem;
         }
-        span.previous {
-                font-size:1.5rem;
-                margin-right:0.1rem;
+        table#nav {
+                display:none;
         }
-        span.next {
-                font-size:1.5rem;
-                margin-top:0;
-                margin-right:auto;
-                margin-left: auto;
+        div.MobileFoot {
+                display: block;
+                width: 100%;
+        }
+        table#mobilenav, tbody, tr, td.next, td.a:link, span.next {
+                display: block;
+                text-align: center;
+                margin:0 auto;
+                font-size: 1.5rem;
+                box-shadow: 0 0.1rem 0.1rem 0 rgba(0,0,0,0.2);
         }
 }
