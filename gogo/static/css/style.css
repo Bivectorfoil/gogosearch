@@ -8,7 +8,6 @@ body {
         font-family: arial,sans-serif;
         margin: 0;
         padding: 0;
-
 }
 
 h1 {
@@ -188,15 +187,9 @@ div.MobileFoot {
         display: none;
 }
 
-@media screen and (max-device-width: 900px) {
-        h1 small {
-                display: none;
-        }
-}
-
-@media screen and (max-device-width: 420px) {
+@media screen and (max-device-width: 800px) {
         html {
-                font-size: 4vw;
+                font-size: 3.8vw;
         }
         body {
 
@@ -204,7 +197,8 @@ div.MobileFoot {
         }
         h1 {
                 font-size: 2rem;
-                color: #2240d8fc;
+                /*color: #2240d8fc;*/
+                color:royalblue;
                 text-align: center; text-decoration: none;
                 margin-left:auto;
                 margin-right:auto;
@@ -280,6 +274,7 @@ div.MobileFoot {
         #res h3 {
                 margin-top: 0.1rem;
                 font-size: 1.2rem;
+                color: #1967D2;
                 width: 100%;
         }
         div.TbwUpd {
@@ -287,15 +282,15 @@ div.MobileFoot {
                 padding:0.01rem;
         }
         cite {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 width:100%;
         }
         div.s {
-                padding-left: 0.5rem;padding-right: 0.5rem; padding-bottom: 0.2rem;
+                padding-left: 0.5rem;padding-right: 0.5rem; padding-bottom: 1rem; padding-top: 0.5rem;
                 margin-top: 0.5rem; margin-left: 0.5rem;margin-right: 0.5rem;
         }
         span.st {
-                font-size:0.85rem;
+                font-size: 1rem;
                 width:100%;
         }
         div#navcnt {
@@ -308,12 +303,13 @@ div.MobileFoot {
         div.MobileFoot {
                 display: block;
                 width: 100%;
+                margin-bottom: 2rem;
         }
         table#mobilenav, tbody, tr, td.next, td.a:link, span.next {
                 display: block;
                 text-align: center;
                 margin:0 auto;
-                font-size: 1.5rem;
-                box-shadow: 0 0.1rem 0.1rem 0 rgba(0,0,0,0.2);
+                font-size: 1.2rem;
+                box-shadow: 0 0.01rem 0.1rem 0 rgba(0,0,0,0.2);
         }
 }
