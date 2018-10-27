@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"  name="viewport" />
-    <title>Gogo</title>
+    <title>Gogo | extremely simple</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',
     filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -10,18 +10,22 @@
   <body>
     <div class="homePage">
       <a href="{{ url_for('index') }}">
-        <h1>Gogo <small> As simple as a grave</small></h1>
+        <h1>Gogo</h1>
       </a>
     </div>
 
     <form method="post">
       {% if form %}
         {{ form.csrf_token }}
-        {{ form.search }}<br>
-          {% for message in form.search.errors %}
-          <small class="error">{{ message }}</small>
-          {% endfor %}
-        {{ form.submit }}<br>
+        <div class="searchform">
+          {{ form.search }}<br>
+            {% for message in form.search.errors %}
+            <small class="error">{{ message }}</small>
+            {% endfor %}
+        </div>
+        <div class="submit">
+          {{ form.submit }}<br>
+        </div>
       {% endif %}
     </form>
     <div id="center_col">
