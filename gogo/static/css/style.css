@@ -234,6 +234,7 @@ div.MobileFoot {
                 line-height:0.5rem;
                 margin-top: 0.01rem;
                 margin-bottom: 0.1rem;
+                border-radius: 0.6rem;
         }
         div#resultStates.resultstates {
                 font-size:0.5rem;
@@ -264,6 +265,7 @@ div.MobileFoot {
                 margin-right: 0.5rem;
                 padding-top: 0.01rem;
                 box-shadow: 0 1px 4px 2px rgba(0,0,0,0.2);
+                border-radius: 0.5rem;
                 
         }
         div.r {
@@ -308,9 +310,13 @@ div.MobileFoot {
         }
         table#mobilenav, tbody, tr, td.next, td.a:link, span.next {
                 display: block;
-                text-align: center;
                 margin:0 auto;
+        }
+        span.next {
+                text-align: center;
                 font-size: 1.2rem;
-                box-shadow: 0 0.01rem 0.1rem 0 rgba(0,0,0,0.2);
+                width: 75%;
+                box-shadow: 0 0.1rem 1rem 0 rgba(0,0,0,0.2);
+                border-radius: 1rem;
         }
 }
