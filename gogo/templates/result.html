@@ -80,11 +80,6 @@
                id="pnnext" style="text-align:left">
               <span class="next">更多结果</span>
             </a>
-          {% else %}
-            <a class="pn" href="{{ url_for('result', query=results['queries']['request'][0]['searchTerms'],
-              starts=results['queries']['previousPage'][0]['startIndex']) }}" id="pnprev">
-              <span class="more">End of Results, Go back</span>
-            </a>
           {% endif %}
           </td>
         </tr>
