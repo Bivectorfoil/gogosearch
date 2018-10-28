@@ -87,6 +87,7 @@ div.NotFound p {
 }
 
 .error {
+        text-align: center;
         color: red;
 }
 
