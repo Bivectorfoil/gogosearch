@@ -308,15 +308,18 @@ div.MobileFoot {
                 width: 100%;
                 margin-bottom: 2rem;
         }
-        table#mobilenav, tbody, tr, td.next, td.a:link, span.next {
+        table#mobilenav, tbody, tr, td.next {
                 display: block;
                 margin:0 auto;
         }
-        span.next {
+        button#load {
                 text-align: center;
                 font-size: 1.2rem;
-                width: 75%;
-                box-shadow: 0 0.1rem 1rem 0 rgba(0,0,0,0.2);
+                color: #1967D2;
+                background-color: white;
+                margin-left: 5rem;
+                width: 60%;
+                box-shadow: 0 0.1rem 1.5rem 0 rgba(0,0,0,0.2);
                 border-radius: 1rem;
         }
 }
