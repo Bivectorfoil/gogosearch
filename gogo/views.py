@@ -14,6 +14,13 @@ class SearchForm(FlaskForm):
     search = StringField('', validators=[DataRequired()])
     submit = SubmitField('Search')
 
+@app.route('/more')
+def load_post():
+    query = request.args.get('query', 'lectures')
+    start = request.args.get('starts', 1)
+    results = socks_search.Search(query, start=start)
+    return render_template('_more.html', results=results)
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SearchForm()
