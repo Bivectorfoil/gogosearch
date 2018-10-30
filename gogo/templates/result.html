@@ -17,7 +17,7 @@
             <h3>{{ item['title'] }}</h3>
             <div class="TbwUpd">
               {#<!-- or {{item[link] }} -->#}
-              <cite class="iUh30">{{ item['displayLink'] }}</cite>
+              <cite class="iUh30">{{ item['displaylink'] }}</cite>
             </div>
           </a>
         </div>
@@ -75,11 +75,27 @@
         <tr valign="top">
           <td class="next">
           {% if results['queries']['nextPage'] %}
-            <a href="{{ url_for('result', query=results['queries']['request'][0]['searchTerms'],
-               starts=results['queries']['nextPage'][0]['startIndex']) }}"
-               id="pnnext" style="text-align:left">
-              <span class="next">更多结果</span>
-            </a>
+            <div class="more"></div>
+            <button id="load">更多结果</button>
+            <script type="text/javascript" src={{ url_for('static', filename='js/jquery-3.3.1.min.js') }}></script>
+            <script type="text/javascript">
+              $(function() {
+                var count = 0;
+                $('#load').click(function() {
+                  var query = {{results['queries']['request'][0]['searchTerms']|tojson}};
+                  var starts = {{results['queries']['nextPage'][0]['startIndex']|tojson}} + count;
+                  var URL = '/more?query=' + query + '&starts=' + starts;
+                  $.ajax({
+                    type: 'GET',
+                    url: URL,
+                    success: function (data) {
+                      count += 10;
+                      $('.more').hide().append(data).fadeIn(800);
+                    }
+                  })
+                })
+              })
+            </script>
           {% endif %}
           </td>
         </tr>
