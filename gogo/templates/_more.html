@@ -1,0 +1,32 @@
+<!-- Sub results page for mobile device asynchronous loading -->
+<div class="src" id="res">
+  {% if results is not none %}
+    {% for item in results['items'] %}
+    <div class="g">
+      <div class="rc">
+        <div class="r">
+          <a href="{{ item['link'] }}" class="title">
+            <h3>{{ item['title'] }}</h3>
+            <div class="TbwUpd">
+              {#<!-- or {{item[link] }} -->#}
+              <cite class="iUh30">{{ item['displayLink'] }}</cite>
+            </div>
+          </a>
+        </div>
+        <div class="s">
+          <div>
+            <span class="st">
+              <!-- 'safe' filter for HTML code render nomally -->
+              {{ item['htmlSnippet']|replace('<br>', '')|safe }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="resultstates" id="resultStates">
+      "获得约 0 条结果"
+    </div>
+  {% endif %}
+</div>
