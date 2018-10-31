@@ -64,7 +64,7 @@ def Search(query, cx=CSE_ID, key=CSE_key, proxies=proxies, num=10, start=1):
         dict_results = json.loads(resp.text)
 
         # Match per day limit or request has no more results
-        if 'searchInformation' not in dict_results:
+        if ('searchInformation' and 'items') not in dict_results:
             return None
         return dict_results
     except requests.exceptions.ConnectionError, e:
