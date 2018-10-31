@@ -114,8 +114,7 @@ small {
 
 #res {
         border: 0;
-        margin: 0;
-        padding: 0 160px;
+        margin-left: 160px;
 }
 
 div#resultStates.resultstates {
@@ -187,6 +186,13 @@ div#navcnt {
 div.MobileFoot {
         display: none;
 }
+div#footnote {
+        bottom: 0;
+        margin-bottom: 1rem;
+        margin-left: 31rem;
+        font-style:italic;
+        color: gray;
+}
 
 @media screen and (max-device-width: 800px) {
         html {
@@ -235,6 +241,7 @@ div.MobileFoot {
                 margin-top: 0.01rem;
                 margin-bottom: 0.1rem;
                 border-radius: 0.6rem;
+                outline: none;
         }
         div#resultStates.resultstates {
                 font-size:0.5rem;
@@ -253,7 +260,7 @@ div.MobileFoot {
                 border: 0;
                 padding:0;
                 width:100%;
-                /*margin-left: -24rem;*/
+                margin: 0 auto;
         }
         div.g {
                 width: 100%;
@@ -321,5 +328,14 @@ div.MobileFoot {
                 width: 60%;
                 box-shadow: 0 0.1rem 1.5rem 0 rgba(0,0,0,0.2);
                 border-radius: 1rem;
+                outline: none;
+        }
+        div#footnote {
+                position: fixed;
+                bottom: 0;
+                margin-bottom: 1rem;
+                margin-left: 31rem;
+                font-style:italic;
+                color: gray;
         }
 }
