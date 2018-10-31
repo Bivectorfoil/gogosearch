@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"  name="viewport" />
-    <title>Gogo | extremely simple</title>
+    <title>Gogo</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',
     filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -37,6 +37,9 @@
         <div id="navcnt">
           {% block foot %}
           {% endblock foot %}
+        </div>
+        <div id="footnote">
+          <span class="note">Simplicity conceals complexity</span>
         </div>
       </div>
     </div>

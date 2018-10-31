@@ -75,7 +75,6 @@
         <tr valign="top">
           <td class="next">
           {% if results['queries']['nextPage'] %}
-            <div class="more"></div>
             <button id="load">更多结果</button>
             <script type="text/javascript" src={{ url_for('static', filename='js/jquery-3.3.1.min.js') }}></script>
             <script type="text/javascript">
@@ -90,7 +89,7 @@
                     url: URL,
                     success: function (data) {
                       count += 10;
-                      $('.more').hide().append(data).fadeIn(800);
+                      $('#res').append(data);
                     }
                   })
                 })
