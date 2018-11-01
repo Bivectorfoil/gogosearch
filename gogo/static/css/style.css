@@ -22,11 +22,16 @@ div.searchform {
 }
 
 input#search {
-        font: 16px arial,sans-serif;font-family: Georgia, serif; font-size: 1.6rem;
-        width: 503px; height: 34px;
+        font: 16px arial,sans-serif;
+        font-family: Georgia, serif;
+        font-size: 1.6rem;
+        width: 503px;
+        height: 34px;
         padding: 0.2rem 0.5rem;
-        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.41);border-radius: 0.8rem;
-        background-color: white; -webkit-box-shadow:0 0 0px 1000px #fff inset;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.41);
+        border-radius: 0.8rem;
+        background-color: white;
+        -webkit-box-shadow:0 0 0px 1000px #fff inset;
         outline: none;
 }
 
@@ -198,7 +203,8 @@ div#footnote {
                 margin-top: 0;margin-bottom: 0.8rem; margin-left: auto; margin-right: auto;
                 padding: 0.5rem 0.8rem;
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); border-radius: 0.5rem;
-                border: 0.1rem solid lightgray; background-color: white;
+                background-color: white; -webkit-box-shadow:0 0 0px 1000px #fff inset;
+                border: 0.1rem solid lightgray; 
                 outline: none;
         }
         input#search:hover {
