@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
-pysocks = "*"
 watchdog = "*"
 
 [packages]
@@ -13,6 +12,7 @@ requests = "*"
 flask-wtf = "*"
 python-dotenv = "*"
 gunicorn = "*"
+pysocks = "*"
 
 [requires]
 python_version = "2.7"
