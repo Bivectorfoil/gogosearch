@@ -13,7 +13,7 @@ fi
 
 if [ ! -x /usr/local/bin/pip ]; then
     echo "Pip is not installed, install it firstly"
-    apt-get install python-pip
+    apt-get install -y python-pip
 else
     echo "Found pip, continue setup"
 fi
@@ -48,10 +48,10 @@ server {
 		proxy_pass http://127.0.0.1:8000; # gunicorn run port
 		proxy_redirect off;
 
-		proxy_set_header Host               $host;
-		proxy_set_header X-Real-IP          $remote_addr;
-		proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Proto  $scheme;
+		proxy_set_header Host               \$host;
+		proxy_set_header X-Real-IP          \$remote_addr;
+		proxy_set_header X-Forwarded-For    \$proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto  \$scheme;
 	}
 	location /static {
 		alias $static_dir;
@@ -63,6 +63,10 @@ EOF
 if [ "`ls -A /etc/nginx/sites-enabled/`" != "" ]; then
     rm /etc/nginx/sites-enabled/*
 fi
+if [ "`ls -A /etc/nginx/sites-available/`" != "" ]; then
+    rm /etc/nginx/sites-available/*
+fi
+
 cp ./nginx.conf /etc/nginx/sites-available/nginx.conf
 ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
@@ -73,6 +77,7 @@ nginx -t
 echo "All dependences are ready, run Flask app..."
 echo "First start gunicorn server..."
 pwd
+
 pipenv run gunicorn -w 2 -b :8000 gogo:app --daemon
 
 echo "gunicorn start normally, now start nginx..."
