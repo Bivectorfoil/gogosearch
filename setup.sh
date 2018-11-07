@@ -11,6 +11,13 @@ if [ ! -x /usr/sbin/nginx ]; then
     apt update && apt install -y nginx
 fi
 
+if [ ! -x /usr/local/bin/pip ]; then
+    echo "Pip is not installed, install it firstly"
+    apt-get install python-pip
+else
+    echo "Found pip, continue setup"
+fi
+
 # load private env file(if exits) to app root directory
 if [ ! -f ".env" ]; then
     echo "Cannot find env file, please copy it manually immediately"
