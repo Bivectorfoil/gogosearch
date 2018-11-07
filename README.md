@@ -1,5 +1,5 @@
 # gogosearch
-![](https://img.shields.io/badge/python-2.7%2B-blue.svg)![](https://img.shields.io/badge/Flask-1.0.2-orange.svg)
+![](https://img.shields.io/badge/python-2.7%2B-blue.svg) ![](https://img.shields.io/badge/Flask-1.0.2-orange.svg)
 
 Gogosearch is a Search Engine power by Flask and CSE (Google Custom Search Engine)
 
@@ -54,10 +54,6 @@ SECRET_KEY='set a hard to guess string'
 CSE_ID=your_CSE_ID
 CSE_key=your_CSE_key
 URL=https://www.googleapis.com/customsearch/v1?
-
-# proxies (optional) has been dumps by json, type: string
-# use json.loads to convert it to dict object to use
-proxies='{"http": "socks5://127.0.0.1:1080", "https": "socks5://127.0.0.1:1080"}'
 ```
 
 **.env** file is at the same directory as **.flaskenv** file.
@@ -77,7 +73,23 @@ Now open the browser address bar and enter `localhost:5000`, if things go well, 
 
 ## Deployment
 
-I recommand use [Heroku](https://www.heroku.com/) to deploy project ( may add details at the future), as this project's [demo](https://gogoso.herokuapp.com/) is host on it, you can also choose any other deployment method you like.
+### deploying on VPS
+
+```bash
+$ mkdir workdir && cd workdir
+$ git init --bare  # Create a bare Repo
+$ git clone https://github.com/Bivectorfoil/gogosearch.git
+$ cd gogosearch
+$ scp .env root@your_ip_addr  # cp env file(mention above) to VPS
+$ chmod +x setup.sh  # Add execution permission
+$ ./setup.sh  # run setup script and wait for success or failure
+```
+
+### deploying on Heroku
+
+Please read the official doc on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
+
+I recommand use [Heroku](https://www.heroku.com/) to deploy project , as this project's first [demo](https://gogoso.herokuapp.com/) is host on it, you can also choose any other deployment method you like.
 
 ## License
 
