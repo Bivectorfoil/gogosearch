@@ -7,13 +7,10 @@ Gogosearch is a Search Engine power by Flask and CSE (Google Custom Search Engin
 
 As I start to learn about Flask, I found [This project](https://github.com/yrq110/TinyGoogle) on Github. It's interesting. I build this project to learn how to build a search engine with [CSE](https://developers.google.com/custom-search/v1/overview) and [Flask](http://flask.pocoo.org/docs/1.0/) from scratch.
 
-## Screenshots
+## Features
 
-![](./screenshot-home.png)
-
-![](./screenshot-results.png)
-
-
+- Google-like UI ( Trying to be)
+- Responsive web design ( Mobile optimization )
 
 ## Getting Started
 
@@ -32,7 +29,8 @@ $ mkdir workdirectory && cd workdirectory
 $ git clone https://github.com/Bivectorfoil/gogosearch.git
 $ cd gogosearch
 $ pipenv install # for Pipenv tool
-$ pip install -p # optional, for pip tool
+# Optional, for pip tool
+$ pip install -r requirement.txt
 ```
 
 ### config
@@ -58,10 +56,6 @@ URL=https://www.googleapis.com/customsearch/v1?
 
 **.env** file is at the same directory as **.flaskenv** file.
 
-### Running the test (TODO)
-
-TODO: add test for it
-
 ### Run it!
 
 ```bash
@@ -75,14 +69,28 @@ Now open the browser address bar and enter `localhost:5000`, if things go well, 
 
 ### deploying on VPS
 
+Use `setup.sh` to deploy or `uninstall.sh` to remove. 
+
+**Deploy**
+
 ```bash
+# ssh to your VPS
 $ mkdir workdir && cd workdir
 $ git init --bare  # Create a bare Repo
 $ git clone https://github.com/Bivectorfoil/gogosearch.git
 $ cd gogosearch
-$ scp .env root@your_ip_addr  # cp env file(mention above) to VPS
-$ chmod +x setup.sh  # Add execution permission
+$ scp .env root@your_ip_addr:/your_workdir_path  # cp env file(mention above) to VPS
+$ chmod +x setup.sh  # add execution permission
 $ ./setup.sh  # run setup script and wait for success or failure
+```
+
+**Uninstall**
+
+```bash
+# ssh to your VPS
+$ cd workdir
+$ chmod +x uninstall.sh  # add execution permission
+$ ./uninstall.sh  # run uninstall script and wait for success or failure
 ```
 
 ### deploying on Heroku
@@ -90,6 +98,26 @@ $ ./setup.sh  # run setup script and wait for success or failure
 Please read the official doc on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
 
 I recommand use [Heroku](https://www.heroku.com/) to deploy project , as this project's first [demo](https://gogoso.herokuapp.com/) is host on it, you can also choose any other deployment method you like.
+
+## TODO
+
+- [] Test
+- [] Python 3 support
+- [] Docker deploy
+
+## Screenshots
+
+### Web
+
+![](./images/web-home.png)
+
+![](./images/web-result.png)
+
+### Mobile
+
+![](./images/mobile-home.png)
+
+![](./images/mobile-result.png)
 
 ## License
 

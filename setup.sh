@@ -26,11 +26,8 @@ if [ ! -f ".env" ]; then
     exit
 fi
 
-echo "Now install pipenv for create virtualenv"
-pip install --no-cache-dir pipenv
-
 echo "Install requirements from pipfile..."
-pipenv install
+pip install -r requirements.txt
 
 # setup nginx
 get_ip(){
@@ -86,7 +83,7 @@ echo "All dependences are ready, run Flask app..."
 echo "First start gunicorn server..."
 pwd
 
-pipenv run gunicorn -w 2 -b :8000 gogo:app --daemon
+gunicorn -w 2 -b :8000 gogo:app --daemon
 
 echo "gunicorn start normally, now start nginx..."
 systemctl start nginx
