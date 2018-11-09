@@ -45,15 +45,8 @@ else
     sleep 1
 fi
 
-# Remove virtualenv 
-echo "All dependences are remove, delete the whole virtualenv"
-pwd
-pipenv --rm
-
-# Remove pip, pipenv
-echo "virtualenv delete completly, now remove pip and pipenv"
-pip uninstall pipenv
-echo "Remove pipenv, now remove pip"
+# Remove pip
+echo "Remove pip"
 apt-get purge python-pip -y
 
 echo "All is cleared, please delete the bare Repository"
