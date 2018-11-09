@@ -13,7 +13,8 @@ fi
 
 if [ ! -x /usr/local/bin/pip ]; then
     echo "Pip is not installed, install it firstly"
-    apt-get install -y python-pip
+    apt-get install -y python-pip python-setuptools
+    pip install --upgrade pip
 else
     echo "Found pip, continue setup"
 fi
@@ -26,7 +27,7 @@ if [ ! -f ".env" ]; then
     exit
 fi
 
-echo "Install requirements from pipfile..."
+echo "Install requirements"
 pip install -r requirements.txt
 
 # setup nginx
@@ -44,8 +45,7 @@ static_dir=`pwd`"/gogo/static/"
 cat << EOF > ./nginx.conf
 server {
 	listen 80;
-
-    server_name $IP;  # change it if you have domain
+    server_name $IP;
 	access_log /var/log/nginx/access.log;
 	error_log /var/log/nginx/error.log;
 
