@@ -45,6 +45,7 @@ static_dir=`pwd`"/gogo/static/"
 cat << EOF > ./nginx.conf
 server {
     listen 80;
+
     server_name $IP;
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;

@@ -47,7 +47,7 @@ fi
 
 # Remove pip
 echo "Remove pip"
-pip uninstall -r requirements -y
+pip uninstall -r requirements.txt -y
 apt-get purge python-pip -y
 
 echo "All is cleared, please delete the bare Repository"
