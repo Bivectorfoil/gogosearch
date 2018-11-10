@@ -74,6 +74,9 @@ server {
 }
 EOF
 
+#remove default nginx default index
+mv /var/www/html/* ../
+
 if [ "`ls -A /etc/nginx/sites-enabled/`" != "" ]; then
     rm /etc/nginx/sites-enabled/*
 fi
