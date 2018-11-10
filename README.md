@@ -93,6 +93,8 @@ $ chmod +x uninstall.sh  # add execution permission
 $ ./uninstall.sh  # run uninstall script and wait for success or failure
 ```
 
+If things go well, you should see your web site at http://your_ip_or_domain.
+
 ### deploying on Heroku
 
 Please read the official doc on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
@@ -101,9 +103,9 @@ I recommand use [Heroku](https://www.heroku.com/) to deploy project , as this pr
 
 ## TODO
 
-- [] Test
-- [] Python 3 support
-- [] Docker deploy
+- [ ] Test
+- [ ] Python 3 support
+- [ ] Docker deploy
 
 ## Screenshots
 
