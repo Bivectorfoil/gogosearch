@@ -30,8 +30,15 @@ fi
 echo "Install requirements"
 pip install -r requirements.txt
 
-# setup nginx
-get_ip(){
+# Setup nginx
+# Get public IP address
+##############################################################################
+# @authorlink      https://github.com/teddysun                               #
+# @copyright       Copyright (C) 2014-2018 Teddysun                          #
+# @codelink(get_ip)                                                          #
+# https://github.com/teddysun/shadowsocks_install/blob/master/shadowsocks.sh #
+##############################################################################
+get_ip(){ 
     local IP=$( ip addr | egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | egrep -v "^192\.168|^172\.1[6-9]\.|^172\.2[0-9]\.|^172\.3[0-2]\.|^10\.|^127\.|^255\.|^0\." | head -n 1 )
     [ -z ${IP} ] && IP=$( wget -qO- -t1 -T2 ipv4.icanhazip.com )
     [ -z ${IP} ] && IP=$( wget -qO- -t1 -T2 ipinfo.io/ip )
@@ -39,10 +46,11 @@ get_ip(){
 }
 IP=$(get_ip)
 
-touch nginx.conf
+NGINXCONF='nginx.conf'
+touch $NGINXCONF
 
 static_dir=`pwd`"/gogo/static/"
-cat << EOF > ./nginx.conf
+cat > $NGINXCONF <<EOF
 server {
     listen 80;
 
