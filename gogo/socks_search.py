@@ -23,7 +23,6 @@ CSE_key = os.getenv('CSE_key', 'not found')
 try:
     proxies = json.loads(os.getenv('proxies'), encoding='ascii')
 except Exception as e:
-    print(e)
     proxies = None
 
 
