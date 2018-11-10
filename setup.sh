@@ -5,29 +5,33 @@
 
 set -e
 
-# Check whether nginx is instlled
-if [ ! -x /usr/sbin/nginx ]; then
-    echo "Nginx not installed, now install Nginx"
-    apt update && apt install -y nginx
-fi
-
-if [ ! -x /usr/local/bin/pip ]; then
-    echo "Pip is not installed, install it firstly"
-    apt-get install -y python-pip python-setuptools
-    pip install --upgrade pip
-else
-    echo "Found pip, continue setup"
-fi
+# Output color variable define
+YELLOW='\033[00;33m'
+PLAIN='\033[0m'
 
 # load private env file(if exits) to app root directory
 if [ ! -f ".env" ]; then
-    echo "Cannot find env file, please copy it manually immediately"
-    echo "Exiting install, after copy env file, please re-run this script"
+    echo "${YELLOW}Cannot find env file, please copy it manually immediately${PLAIN}"
+    echo "${YELLOW}Exiting install, after copy env file, please re-run this script${PLAIN}"
     sleep 2
     exit
 fi
 
-echo "Install requirements"
+# Check whether nginx is instlled
+if [ ! -x /usr/sbin/nginx ]; then
+    echo "${YELLOW}Nginx is not installed, now install it${PLAIN}"
+    apt update && apt install -y nginx
+fi
+
+if [ ! -x /usr/local/bin/pip ]; then
+    echo "${YELLOW}Pip is not installed, install it firstly${PLAIN}"
+    apt-get install -y python-pip python-setuptools
+    pip install --upgrade pip
+else
+    echo "${YELLOW}Found pip, continue setup${PLAIN}"
+fi
+
+echo "${YELLOW}Install requirements${PLAIN}"
 pip install -r requirements.txt
 
 # Setup nginx
@@ -74,9 +78,6 @@ server {
 }
 EOF
 
-#remove default nginx default index
-mv /var/www/html/* ../
-
 if [ "`ls -A /etc/nginx/sites-enabled/`" != "" ]; then
     rm /etc/nginx/sites-enabled/*
 fi
@@ -91,13 +92,16 @@ ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 nginx -t
 
 # dependences install complete
-echo "All dependences are ready, run Flask app..."
-echo "First start gunicorn server..."
+echo "${YELLOW}All dependences are ready, run Flask app...${PLAIN}"
+echo "${YELLOW}First start gunicorn server...${PLAIN}"
 pwd
 
 gunicorn -w 2 -b :8000 gogo:app --daemon
 
-echo "gunicorn start normally, now start nginx..."
-systemctl start nginx
-echo "start nginx, check for status"
+echo "${YELLOW}gunicorn start normally, now start nginx...${PLAIN}"
+
+# use restart to avoid nginx load default index page
+systemctl restart nginx
+sleep 1
+echo "${YELLOW}Start nginx successfully, check for status${PLAIN}"
 systemctl status nginx
