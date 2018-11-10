@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Uninstall script for Flask Web App which.
 # WARNNING: this script will delete the App's dependences and runtime dependency

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Develop script for Flask Web App, with gunicorn and nginx
 # run it as root or sudo
