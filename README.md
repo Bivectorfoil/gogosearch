@@ -74,7 +74,7 @@ Use `setup.sh` to deploy or `uninstall.sh` to remove.
 **Deploy**
 
 ```bash
-# ssh to your VPS
+# ssh to your VPS, run command at root or sudo
 $ mkdir workdir && cd workdir
 $ git init --bare  # Create a bare Repo
 $ git clone https://github.com/Bivectorfoil/gogosearch.git
@@ -87,13 +87,27 @@ $ ./setup.sh  # run setup script and wait for success or failure
 **Uninstall**
 
 ```bash
-# ssh to your VPS
+# ssh to your VPS, run command at root or sudo
 $ cd workdir
 $ chmod +x uninstall.sh  # add execution permission
 $ ./uninstall.sh  # run uninstall script and wait for success or failure
 ```
 
 If things go well, you should see your web site at http://your_ip_or_domain.
+
+### deploying on VPS with Docker (Draft)
+
+```bash
+# Firstly ssh to your VPS, run command at root or sudo
+$ git clone https://github.com/Bivectorfoil/gogosearch.git
+$ cd gogosearch
+$ scp .env root@your_VPS_ip:/your_work_dir/gogosearch
+$ chmod +x setup_docker && ./setup_docker.sh # install docker-ce
+$ docker image build -t flask-demo .  # DO NOT miss the '.' at last
+$ docker containter run -d -p 8080:5000 flask-demo
+```
+
+As above, if things go well, you should see the `Web app` run at http://your_ip_or_domain:8080.  **Port** can be change at part of  `port:5000`.
 
 ### deploying on Heroku
 
