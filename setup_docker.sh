@@ -5,6 +5,10 @@
 
 set -e
 
+# Output color variable define
+YELLOW='\033[00;33m'
+PLAIN='\033[0m'
+
 # load private env file(if exits) to app root directory
 if [ ! -f ".env" ]; then
     echo "${YELLOW}Cannot find env file, please copy it manually immediately${PLAIN}"
@@ -61,7 +65,7 @@ IP=$(get_ip)
 NGINXCONF='nginx.conf'
 touch $NGINXCONF
 
-static_dir=`pwd`"/etc/nginx/html"
+static_dir="/gogo/static/"
 cat > $NGINXCONF <<EOF
 server {
     listen 80;
