@@ -1,13 +1,14 @@
-version: '2'
+version: '3'
 services:
   web:
     build:
       context: .
       dockerfile: dockerfile
+    expose:
+      - "8000"
     volumes:
-      - ./gogo/static:/usr/src/app/gogo/static
-    ports:
-      - "8000:8000"
+      - ./:/usr/src/app
+      # - ./gogo/static:/usr/src/app/gogo/static
     command: '/usr/local/bin/gunicorn -w 2 gogo:app --daemon'
 
   nginx:
@@ -16,7 +17,7 @@ services:
     volumes:
       - ./gogo/static:/gogo/static/ # nginx config alias path
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    links:
+    depends_on:
       - web
     ports:
-      - "80:80"
+      - "8080:80"
