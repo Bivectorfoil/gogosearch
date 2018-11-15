@@ -1,26 +1,28 @@
 version: '3'
 services:
-  web:
+  flaskweb:
     build:
       context: .
       dockerfile: Dockerfile
-    expose:
-      - "8000"
-      # ports:
-      # - "8000:8000"
     volumes:
-      - ./:/usr/src/app
-        # - blog-static:/usr/src/app/gogo/static # nginx config alias path
-    command: '/usr/local/bin/gunicorn -w 2 -b 0.0.0.0:8000 gogo:app'
+      - .:/usr/src/app
+    networks:
+      - nginx_network
+    command: '/usr/local/bin/gunicorn -w 2 -b :8000 gogo:app'
 
   nginx:
     # restart: always
     image: nginx:stable-alpine
     volumes:
-      # - ./gogo/static:/usr/share/nginx/html # nginx config alias path
-      - ./gogo/static:/static # nginx config alias path
-      - ./nginx.conf:/etc/nginx/sites-enabled/default.conf
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./gogo/static:/opt/services/flaskapp/static
     depends_on:
-      - web
+      - flaskweb
     ports:
       - "80:80"
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
