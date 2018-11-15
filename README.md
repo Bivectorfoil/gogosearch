@@ -67,7 +67,7 @@ Now open the browser address bar and enter `localhost:5000`, if things go well, 
 
 ## Deployment
 
-### deploying on VPS
+### Deploying on VPS
 
 Use `setup.sh` to deploy or `uninstall.sh` to remove. 
 
@@ -95,21 +95,21 @@ $ ./uninstall.sh  # run uninstall script and wait for success or failure
 
 If things go well, you should see your web site at http://your_ip_or_domain.
 
-### deploying on VPS with Docker (Draft)
+### Deploying on VPS with Docker (Recommend)
 
 ```bash
 # Firstly ssh to your VPS, run command at root or sudo
 $ git clone https://github.com/Bivectorfoil/gogosearch.git
 $ cd gogosearch
-$ scp .env root@your_VPS_ip:/your_work_dir/gogosearch
-$ chmod +x setup_docker && ./setup_docker.sh # install docker-ce
-$ docker image build -t flask-demo .  # DO NOT miss the '.' at last
-$ docker containter run -d -p 8080:5000 flask-demo
+$ scp .env root@your_ip:/path_to/gogosearch
+$ chmod +x setup_docker.sh && ./setup_docker.sh # install docker-ce and docker compose
+$ docker-compose up -d # Run the containers
+$ docker-compose ps  # Check for status
 ```
 
-As above, if things go well, you should see the `Web app` run at http://your_ip_or_domain:8080.  **Port** can be change at part of  `port:5000`.
+As above, if things go well, you should see the `Web app` run at http://your_ip_or_domain.
 
-### deploying on Heroku
+### Deploying on Heroku
 
 Please read the official doc on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
 
@@ -119,7 +119,7 @@ I recommand use [Heroku](https://www.heroku.com/) to deploy project , as this pr
 
 - [ ] Test
 - [ ] Python 3 support
-- [ ] Docker deploy
+- [x] Docker deploy
 
 ## Screenshots
 
