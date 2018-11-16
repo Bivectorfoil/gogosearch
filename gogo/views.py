@@ -7,7 +7,12 @@ from wtforms.validators import DataRequired
 
 from gogo import app
 
-import socks_search
+try:
+    # Py2
+    import socks_search
+except ImportError:
+    # Py3
+    from . import socks_search
 
 
 class SearchForm(FlaskForm):
