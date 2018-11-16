@@ -45,31 +45,5 @@ chmod +x /usr/local/bin/docker-compose
 
 docker-compose --version
 
-# Setup nginx
-NGINXCONF='nginx.conf'
-touch $NGINXCONF
-
-static_dir="/static/"
-cat > $NGINXCONF <<EOF
-server {
-    listen 80;
-
-    server_name 0.0.0.0;
-    access_log /var/log/nginx/access.log;
-    error_log /var/log/nginx/error.log;
-    
-    location / {
-        proxy_pass http://web:8000; # gunicorn run port
-        proxy_redirect off;
-        
-        proxy_set_header Host               \$host;
-        proxy_set_header X-Real-IP          \$remote_addr;
-        proxy_set_header X-Forwarded-For    \$proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto  \$scheme;
-    }
-    location /static {
-        alias $static_dir;
-        expires 30d;
-    }
-}
-EOF
+echo "${YELLOW}Evething is ready for deploy, run docker-compose up -d \
+    for deploy${PLAIN}"
