@@ -1,5 +1,5 @@
 # gogosearch
-![](https://img.shields.io/badge/python-2.7%2B-blue.svg) ![](https://img.shields.io/badge/Flask-1.0.2-orange.svg)
+![](https://img.shields.io/badge/python-2.7%20%7C%203.6-blue.svg) ![](https://img.shields.io/badge/Flask-1.0.2-orange.svg) ![](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 Gogosearch is a Search Engine power by Flask and CSE (Google Custom Search Engine)
 
@@ -67,14 +67,14 @@ Now open the browser address bar and enter `localhost:5000`, if things go well, 
 
 ## Deployment
 
-### deploying on VPS
+### Deploying on VPS
 
 Use `setup.sh` to deploy or `uninstall.sh` to remove. 
 
 **Deploy**
 
 ```bash
-# ssh to your VPS
+# ssh to your VPS, run command at root or sudo
 $ mkdir workdir && cd workdir
 $ git init --bare  # Create a bare Repo
 $ git clone https://github.com/Bivectorfoil/gogosearch.git
@@ -84,28 +84,49 @@ $ chmod +x setup.sh  # add execution permission
 $ ./setup.sh  # run setup script and wait for success or failure
 ```
 
+If things go well, you should see your website at http://your_ip_or_domain.
+
+**Note:** In the case of access through a **domain name**, you should correctly set the **domain name** in NGINX's configuration file rather than the **IP address**
+
 **Uninstall**
 
 ```bash
-# ssh to your VPS
+# ssh to your VPS, run command at root or sudo
 $ cd workdir
 $ chmod +x uninstall.sh  # add execution permission
 $ ./uninstall.sh  # run uninstall script and wait for success or failure
 ```
 
-If things go well, you should see your web site at http://your_ip_or_domain.
+### Deploying on VPS with Docker (Recommended)
 
-### deploying on Heroku
+```bash
+# Firstly ssh to your VPS, run command at root or sudo
+$ git clone https://github.com/Bivectorfoil/gogosearch.git
+$ cd gogosearch
+$ scp .env root@your_ip:/path_to/gogosearch
+$ chmod +x setup_docker.sh && ./setup_docker.sh # install docker-ce and docker compose
+$ docker-compose up -d # Run the containers
+$ docker-compose ps  # Check for status
+```
+
+As above, if things go well, you should see the `Web app` run at http://your_ip_or_domain. 
+
+**Note:** In the case of access through a domain name, you should correctly set the domain name in NGINX's configuration file rather than the **IP address**.
+
+I personally recommend using Docker for deployment cause it makes development and deployment( since I have already done the difficult part of it) more easier. You may want to read the official [documentation](https://docs.docker.com/) for more info.
+
+### Deploying on Heroku
 
 Please read the official doc on [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python)
 
-I recommand use [Heroku](https://www.heroku.com/) to deploy project , as this project's first [demo](https://gogoso.herokuapp.com/) is host on it, you can also choose any other deployment method you like.
+I also recommand use [Heroku](https://www.heroku.com/) to deploy project , as this project's first [demo](https://gogoso.herokuapp.com/) is host on it, you can also choose any other deployment method you like.
 
 ## TODO
 
 - [ ] Test
-- [ ] Python 3 support
-- [ ] Docker deploy
+- [x] Python 3 support
+- [x] Docker deploy
+- [ ] Integrated HTTPS
 
 ## Screenshots
 

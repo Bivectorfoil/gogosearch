@@ -1,0 +1,28 @@
+version: '3'
+services:
+  flaskweb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - nginx_network
+    command: '/usr/local/bin/gunicorn -w 2 -b :8000 gogo:app'
+
+  nginx:
+    # restart: always
+    image: nginx:stable-alpine
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./gogo/static:/opt/services/flaskapp/static
+    depends_on:
+      - flaskweb
+    ports:
+      - "80:80"
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
