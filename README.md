@@ -52,6 +52,11 @@ SECRET_KEY='set a hard to guess string'
 CSE_ID=your_CSE_ID
 CSE_key=your_CSE_key
 URL=https://www.googleapis.com/customsearch/v1?
+
+# proxies (optional, only use in local development enviroment, comment it in production enviroment) 
+# has been dumps by json, type: string
+# use json.loads to convert it to dict object to use
+proxies='{"http": "socks5://127.0.0.1:1080", "https": "socks5://127.0.0.1:1080"}'
 ```
 
 **.env** file is at the same directory as **.flaskenv** file.
