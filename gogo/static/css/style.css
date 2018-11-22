@@ -24,7 +24,7 @@ div.searchform {
 input#search {
         font: 16px arial,sans-serif;
         font-family: Georgia, serif;
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         width: 503px;
         height: 34px;
         padding: 0.2rem 0.5rem;
@@ -83,8 +83,8 @@ div.NotFound p {
 }
 
 #center_col {
-        margin-left: 150px;
-        width: 632px;
+        margin:auto;
+        width: 50rem;
 }
 
 a:link { text-decoration: none;color: blue}
@@ -96,28 +96,23 @@ small {
 }
 
 #res h3 {
-        font-size: 18px; font-weight: normal;
+        font-size: 1.5rem; font-weight: normal;
         color: #1a0dab;
         display: inline-block;
         margin: 0;
         padding: 0;
 }
 
-#res {
-        border: 0;
-        margin-left: 160px;
-}
-
 div#resultStates.resultstates {
         color: grey;
         font-size: small;
         line-height: 43px;
-        padding-left: 0px; padding-top: 0; padding-bottom: 0; padding-right: 8px;
+        padding-left: 0px; padding-top: 0; padding-bottom: 0; padding-right: 0.5rem;
 }
 
-div.src {
-        width: 900px;
-        margin:0;
+div#res.src {
+        width: 50rem;
+        margin:1rem;
 }
 
 div.g {
@@ -130,16 +125,18 @@ div.rc {
         position: relative;
 }
 div.TbwUpd {
-        padding:0.01rem;
+        padding-top: 0.1rem;
+        padding-bottom: 0.5rem;
 }
-.a, cite {
+.a, cite.iUh30 {
         color: #006621;
-        font-style: 14px;
+        font-size: 1.2rem;
         padding-top: 1px;
 }
 
 .s {
         color: #545454;
+        max-width: 50rem;
 }
 
 .st {
@@ -148,9 +145,8 @@ div.TbwUpd {
 }
 
 span.st {
-        font-size: small; font-family: arial,sans-serif;
+        font-size: 1.2rem; font-family: arial,sans-serif;
         display: block;
-        width: 500px;
 }
 
 span.st b {
@@ -164,7 +160,8 @@ span.next {
 
 div#navcnt {
         font-size: 1.5rem;
-        margin-left: 130px;
+        /*margin-left: 130px;*/
+        margin:0;
         padding: 30px;
 }
 
@@ -173,9 +170,13 @@ div.MobileFoot {
 }
 div#footnote {
         bottom: 0;
-        margin-bottom: 1rem; margin-left: 31rem;
         font-style:italic;
         color: gray;
+}
+
+span.note {
+        text-align: center;
+        display: block;
 }
 
 @media screen and (max-device-width: 800px) {
@@ -228,7 +229,7 @@ div#footnote {
                 padding-left: 1rem; padding-right:auto;
         }
         #center_col {
-                width: auto;
+                width: 45rem;
                 margin-right:auto;
                 margin-left:auto;
         }
