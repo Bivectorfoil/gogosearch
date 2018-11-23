@@ -16,10 +16,13 @@ services:
     volumes:
       - ./nginx/conf.d/:/etc/nginx/conf.d
       - ./gogo/static:/opt/services/flaskapp/static
+      - ./letsencrypt/:/data/letsencrypt/
+      - /etc/letsencrypt/:/etc/letsencrypt/
     depends_on:
       - flaskweb
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - nginx_network
 
