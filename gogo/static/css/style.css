@@ -229,11 +229,11 @@ span.note {
                 padding-left: 1rem; padding-right:auto;
         }
         #center_col {
-                width: 45rem;
+                width: 100%;
                 margin-right:auto;
                 margin-left:auto;
         }
-        #res {
+        div#res.src {
                 font-size:xx-large;
                 border: 0;
                 padding:0;
@@ -305,9 +305,9 @@ span.note {
                 border-radius: 1rem;
                 outline: none;
         }
-        div#footnote {
-                font-style:italic; color: gray;
-                margin-left: 6.8rem;
+        span.note {
+                text-align: center;
+                display: block;
         }
         a#top {
                 display: block;
