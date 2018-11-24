@@ -110,13 +110,36 @@ $ git clone https://github.com/Bivectorfoil/gogosearch.git
 $ cd gogosearch
 $ scp .env root@your_ip:/path_to/gogosearch
 $ chmod +x setup_docker.sh && ./setup_docker.sh # install docker-ce and docker compose
+
+# Note: In the case of access through a domain name, you should correctly set the domain name in NGINX's configuration file rather than the IP address.
+
 $ docker-compose up -d # Run the containers
 $ docker-compose ps  # Check for status
 ```
 
-As above, if things go well, you should see the `Web app` run at http://your_ip_or_domain. 
+#### Let's encrypt !
 
-**Note:** In the case of access through a domain name, you should correctly set the domain name in NGINX's configuration file rather than the **IP address**.
+Since we already use docker for deployment, why shouldn't we go futher for **HTTPS** ? A little bit manual work needs to be done before we enjoy our **HTTPS** website. As follow:
+
+```bash
+# Add certbot for let's encrypt
+
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install python-certbot-nginx
+# Check whether we can access the Special index page though Nginx
+$ curl http://your_domain_name/.well-known/
+$ "test" # The return value, if not, pls go back and check the steps carefully before continue
+```
+
+```bash
+# Creating the certificate
+
+$ sudo certbot certonly --webroot -w letsencrypt -d your_domain_name
+# Note: letsencrypt is the pre-created directory for holding the test index page which certbot needs to certificate. It should be in the same directory as LICENSE file.
+```
+
+As above, if things go well, you should see the `Web app` run at https://your_domain. 
 
 I personally recommend using Docker for deployment cause it makes development and deployment( since I have already done the difficult part of it) more easier. You may want to read the official [documentation](https://docs.docker.com/) for more info.
 
@@ -131,7 +154,7 @@ I also recommand use [Heroku](https://www.heroku.com/) to deploy project , as th
 - [ ] Test
 - [x] Python 3 support
 - [x] Docker deploy
-- [ ] Integrated HTTPS
+- [x] Integrated HTTPS
 
 ## Screenshots
 
