@@ -68,7 +68,7 @@ $ pipenv shell # active virtual enviroment
 $ flask run # default run at localhost:5000, production model
 ```
 
-Now open the browser address bar and enter `localhost:5000`, if things go well, we will see the homepage, otherwise go back and check the steps clearly. good luck!
+Now open the browser address bar and enter `localhost:5000`, if things go well, we will see the homepage, otherwise go back and check the steps clearly. Good luck!
 
 ## Deployment
 
