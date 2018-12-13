@@ -75,25 +75,24 @@
         <tr valign="top">
           <td class="next">
           {% if results['queries']['nextPage'] %}
-            <button id="load">更多结果</button>
-            <script type="text/javascript" src={{ url_for('static', filename='js/jquery-3.3.1.min.js') }}></script>
+          <button id="load" onclick="load_more()">更多结果</button>
             <script type="text/javascript">
-              $(function() {
-                var count = 0;
-                $('#load').click(function() {
-                  var query = {{results['queries']['request'][0]['searchTerms']|tojson}};
-                  var starts = {{results['queries']['nextPage'][0]['startIndex']|tojson}} + count;
-                  var URL = '/more?query=' + query + '&starts=' + starts;
-                  $.ajax({
-                    type: 'GET',
-                    url: URL,
-                    success: function (data) {
-                      count += 10;
-                      $('#res').append(data);
-                    }
-                  })
-                })
-              })
+              var count = 0;
+              function load_more() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('res').innerHTML += xhr.responseText;
+                    count += 10;
+                  }
+                };
+                var query = {{results['queries']['request'][0]['searchTerms']|tojson}};
+                var starts = {{results['queries']['nextPage'][0]['startIndex']|tojson}} + count;
+                var URL = '/more?query=' + query + '&starts=' + starts;
+
+                xhr.open("GET", URL, true);
+                xhr.send();
+              }
             </script>
           {% endif %}
           </td>
