@@ -1,16 +1,17 @@
-certifi==2019.3.9
+-i https://pypi.org/simple/
+certifi==2020.12.5
 chardet==3.0.4
-Click==7.0
-Flask==1.0.2
-Flask-WTF==0.14.2
+click==7.1.2
+flask-wtf==0.14.2
+flask==1.0.2
 gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
-Jinja2==2.10.1
-MarkupSafe==1.1.1
-PySocks==1.7.0
+jinja2==2.11.3
+markupsafe==1.1.1
+pysocks==1.7.0
 python-dotenv==0.10.2
 requests==2.22.0
-urllib3==1.25.2
-Werkzeug==0.15.4
-WTForms==2.2.1
+urllib3==1.25.11
+werkzeug==1.0.1
+wtforms==2.3.3
